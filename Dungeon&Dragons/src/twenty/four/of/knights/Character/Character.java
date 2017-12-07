@@ -7,7 +7,7 @@ import twenty.four.of.knights.Dice.*;
  * @author Knight Paladin One Chainzz
  *
  */
-public class CharacterCreator {
+public class Character {
 	/** The strength of the character. */
 	private int STR;
 	/** The dexterity of the character. */
@@ -21,7 +21,7 @@ public class CharacterCreator {
 	/** The charisma of the character. */
 	private int CHA;
 	/**
-	 * Constructor of the Character Creator.
+	 * Constructor of the Character. Mainly used for testing purposes.
 	 * @param STR The strength of the character.
 	 * @param DEX The dexterity of the character.
 	 * @param CON The constitution of the character.
@@ -29,13 +29,26 @@ public class CharacterCreator {
 	 * @param INT The intelligence of the character.
 	 * @param CHA The charisma of the character.
 	 */
-	public CharacterCreator(int STR, int DEX, int CON, int WIS, int INT, int CHA) {
+	public Character(int STR, int DEX, int CON, int WIS, int INT, int CHA) {
 		this.STR = STR;
 		this.DEX = DEX;
 		this.CON = CON;
 		this.WIS = WIS;
 		this.INT = INT;
 		this.CHA = CHA;
+	}
+	/**
+	 * The constructor for a Character. This constructor is used for 
+	 * the creation of a new Character, and will be used in the main 
+	 * implementation of the GUI.
+	 */
+	public Character() {
+		setStrength();
+		setDexterity();
+		setConstitution();
+		setWisdom();
+		setIntelligence();
+		setCharisma();
 	}
 	/**
 	 * Gets, and returns, the value of the strength stat of the character.
@@ -51,7 +64,7 @@ public class CharacterCreator {
 	 * ensures that the value of the stat cannot go below nine.
 	 * @param STR The value of the strength stat for the character.
 	 */
-	public void setStrength(int STR) {
+	public void setStrength() {
 		STR = 0;
 		D6 rolls = new D6(6);
 		int a = rolls.roller(6);
@@ -79,7 +92,7 @@ public class CharacterCreator {
 	 * ensures that the value of the stat cannot go below nine.
 	 * @param DEX The value of the dexterity stat for the character.
 	 */
-	public void setDexterity(int DEX) {
+	public void setDexterity() {
 		DEX = 0;
 		D6 rolls = new D6(6);
 		int a = rolls.roller(6);
@@ -107,7 +120,7 @@ public class CharacterCreator {
 	 * ensures that the value of the stat cannot go below nine.
 	 * @param CON The value of the constitution stat for the character.
 	 */
-	public void setConstitution(int CON) {
+	public void setConstitution() {
 		CON = 0;
 		D6 rolls = new D6(6);
 		int a = rolls.roller(6);
@@ -135,7 +148,7 @@ public class CharacterCreator {
 	 * ensures that the value of the stat cannot go below nine.
 	 * @param WIS The value of the wisdom stat for the character.
 	 */ 
-	public void setWisdom(int WIS) {
+	public void setWisdom() {
 		WIS = 0;
 		D6 rolls = new D6(6);
 		int a = rolls.roller(6);
@@ -163,7 +176,7 @@ public class CharacterCreator {
 	 * ensures that the value of the stat cannot go below nine.
 	 * @param INT The value of the intelligence stat for the character.
 	 */
-	public void setIntelligence(int INT) {
+	public void setIntelligence() {
 		INT = 0;
 		D6 rolls = new D6(6);
 		int a = rolls.roller(6);
@@ -191,7 +204,7 @@ public class CharacterCreator {
 	 * ensures that the value of the stat cannot go below nine.
 	 * @param CHA The value of the charisma stat for the character.
 	 */
-	public void setCharisma(int CHA) {
+	public void setCharisma() {
 		CHA = 0;
 		D6 rolls = new D6(6);
 		int a = rolls.roller(6);
@@ -204,5 +217,13 @@ public class CharacterCreator {
 		if (c < 4)
 			c = 3;
 		CHA = a + b + c;
+	}
+	/**
+	 * Creates a String representation of the Character's stats.
+	 */
+	public String toString() {
+		String builder = "";
+		builder += getStrength() + " " + getDexterity() + " " + getConstitution() + " " + getWisdom() + " " + getIntelligence() + " " + getCharisma();
+		return builder;
 	}
 }
