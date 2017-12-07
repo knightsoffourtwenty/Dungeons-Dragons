@@ -34,4 +34,18 @@ public class D6 {
 		rolled = rand.nextInt(D6) + randModifier;
 		return rolled;
 	}
+	/**
+	 * Gets and returns the rolled value of the D6.
+	 * @return The rolled value of the D6.
+	 */
+	public int getRolled() {
+		return rolled;
+	}
+	/**
+	 * Sets the value of roll for the D6.
+	 * @param rolled The value of the rolled D6.
+	 */
+	public void setRolled(int rolled) {
+		this.rolled = roller(rolled);
+	}
 }
